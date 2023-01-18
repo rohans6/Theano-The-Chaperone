@@ -23,3 +23,4 @@ This bot can replace museum guides for explaining different exhibits to the visi
 * **Very few people visit museums nowadays, our robot can be a point of attraction to visitors, thus increasing the footprint number.**
 
 ## Hardware Block diagram
+![image](Picture1.png)
