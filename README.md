@@ -17,7 +17,9 @@ This bot can replace museum guides for explaining different exhibits to the visi
 
 
 ## Objectives and Goals:-
-* Breaking down language barriers 
-* Providing a high-tech welcome - even for children 
-* Guiding the visitors with a touch of emotion and surprise 
-* Very few people visit museums nowadays, our robot can be a point of attraction to visitors, thus increasing the footprint number. 
+* **Breaking down language barriers**
+* **Providing a high-tech welcome - even for children**
+* **Guiding the visitors with a touch of emotion and surprise**
+* **Very few people visit museums nowadays, our robot can be a point of attraction to visitors, thus increasing the footprint number.**
+
+## Hardware Block diagram
