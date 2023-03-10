@@ -24,3 +24,11 @@ This bot can replace museum guides for explaining different exhibits to the visi
 
 ## Hardware Block diagram
 ![image](Picture1.png)
+
+# Software
+
+## Object-Detection
+### Data Collection
+### Data Preprocessing
+### Data Augmentation
+### Model Training and Evaluation
