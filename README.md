@@ -84,6 +84,7 @@ of still images for further analysis and model training. We employ the OpenCV
 library, which provides a range of computer vision functionalities, including video
 processing and frame extraction. By utilizing OpenCV, we can efficiently capture
 images from the recorded videos.
+
 During the frame extraction process, we extract frames from the videos
 at a rate of 5 frames per second. This ensures that we capture an adequate number
 of frames to represent different moments in the recorded videos. To organize the
@@ -132,7 +133,7 @@ in textual form and will be converted to speech using a text-to-speech engine. T
 system will use a speaker to read out the information to the visitor. The textto-speech engine converts the retrieved textual information into audio output that
 the visitor can hear, while the speaker enables audio output. Overall, the system
 will provide a user-friendly and interactive experience for visitors at the museum.
-![img](gradio.png)
+![img](Images/gradio.png)
 
 #### VoiceBot:
 Additionally, the system will have voice-enabled,question-answer interactions for visitors to learn more about the exhibit.
@@ -155,8 +156,31 @@ The main script orchestrates the entire system, capturing images, running object
 
 Our software implementation leverages cutting-edge technologies to enhance the museum experience, providing informative descriptions of exhibits and enabling interactive communication between visitors and the museum's exhibits.
 
+## Hardware Implementation
+### Planned Components 
+Our autonomous tour-guide robot’s hardware components include a Raspberry PI 4B 8GB module as the central processing unit and a battery pack for power
+supply. It also has a 5MP camera module for capturing images, a microphone for
+recording audio input, and a proximity sensor for obstacle detection. Output modules include an 18 cm LCD touchscreen display and speakers for audio output. The
+system utilizes Nema 17 stepper motors for movement, along with TB6600 stepper
+motor drivers for precise control. The selected hardware components ensure the
+smooth functioning and high-quality performance of the system.
+![img](Images/hardware_block.png)
 
+### Design of system 
+The autonomous tour-guide robot’s mechanical design is optimized for optimal functionality, aesthetics, and load-bearing capabilities.The CAD models of our robot are shown below
+![img](Images/theano.png)
 
+### Navigation 
+A line-following wheeled robot employs a sensor-based technique to achieve
+its desired motion. The robot will be equipped with a set of sensors, typically a line
+sensor array, which is used to detect the contrast between the robot’s surrounding
+surface and the line to be followed. The robot’s control system will utilize the data from the sensors to make adjustments to the robot’s movement in order to maintain its position relative to
+the line. The control system analyzes the output of the sensor array to determine
+the position of the line relative to the robot’s current position. The line following
+technique will be implemented using proportional-integral-derivative (PID) control. This algorithm uses the sensor data to compute the necessary adjustments to
+the robot’s motion, and it will be tuned to optimize the robot’s performance based
+on the specific requirements of the application.
+![img](Images/one.png)
 
 
 ## Results and Evaluation
@@ -171,26 +195,16 @@ level of quality. As observed in the previous graph, ChatGPT AI has the shortest
 while Wit.ai has the longest response time.
 ![img](Images/cb.png)
 
-## Introduction:-
-A robot is being developed with capabilities to operate and explain physical exhibits through interaction with visitors.
-This robot also takes into account other factors like choosing the shortest path, collision detection and hence making the museum tour efficient.
-To make the tour user friendly it also uses the concepts of NLP so that the tourists can interact in different languages hence removing the language barrier.
-This bot can replace museum guides for explaining different exhibits to the visitors giving them a technologically advanced experience.
+## Conclusions
+Our system utilizes a line sensor array to accurately detect the contrast between the robot’s surrounding surface and the desired line to be followed, providing
+a more reliable and cost-effective solution compared to RFID tags. Furthermore,
+object detection algorithms are used to identify individuals as well as obstacles.
+By utilizing an intelligent voice bot, visitors not only receive information about
+artifacts but also have their fundamental questions answered by the chatbot.
 
-
-## Objectives and Goals:-
-* **Breaking down language barriers**
-* **Providing a high-tech welcome - even for children**
-* **Guiding the visitors with a touch of emotion and surprise**
-* **Very few people visit museums nowadays, our robot can be a point of attraction to visitors, thus increasing the footprint number.**
-
-## Hardware Block diagram
-![image](Picture1.png)
-
-# Software
-
-## Object-Detection
-### Data Collection
-### Data Preprocessing
-### Data Augmentation
-### Model Training and Evaluation
+## Future Scope 
+With further improvements, Theano will soon be capable of comprehending and responding in numerous languages, thereby enabling individuals of all
+linguistic backgrounds to enjoy the museum. The chatbot will be fine-tuned with
+precise information about the exhibit to increase its accuracy. Theano will be standardized to make it applicable for all types of museums; the museum will only need
+to supply the dataset and choose the model; after that, the robot will automatically
+train itself and be prepared for use in that specific museum.
