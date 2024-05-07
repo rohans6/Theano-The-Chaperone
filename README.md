@@ -41,7 +41,63 @@ The system consists of the following essential hardware devices:
 
 7. **DC portable battery:** Portable battery to provide uninterrupted power supply to all elements of the system.
 
-![image](requirements.jpg)
+## ClassDiagram
+![image](Images/class_diagram.jpeg)
+
+## Frame Extraction
+The `FrameExtractor.py` script provides a straightforward method for extracting frames from video files. Here's an overview of how it works:
+
+1. **Input Video Files:** The script expects input video files to be stored in a directory named 'Videos'.
+
+2. **Frame Extraction Process:** The script iterates through each video file in the 'Videos' directory and extracts frames at specified intervals. It calculates the duration between frames based on the desired frames per second (FPS) for saving frames.
+
+3. **Frame Saving:** Frames are saved as individual JPEG images in a directory named 'Images', with each video file having its own subdirectory within 'Images'.
+
+4. **Usage:** The script can be executed from the command line, and it automatically handles the frame extraction process for all video files in the 'Videos' directory.
+
+5. **Dependencies:** The script relies on OpenCV for video processing and image manipulation, as well as NumPy for numerical computations.
+
+6. **Customization:** Users can adjust the frames per second (FPS) for saving frames to control the number of frames extracted per second of video footage.
+
+By running the `FrameExtractor.py` script, users can efficiently extract frames from video files for various applications such as video analysis, computer vision, and multimedia processing.
+## Software Implementation
+
+Our software implementation comprises several components designed to provide a seamless and interactive experience for visitors at the museum. Here's an overview of each component:
+
+### 1. Image Detection
+
+#### Object Detection Algorithms:
+We utilize state-of-the-art object detection algorithms, including Faster Region-based Convolutional Neural Network (Fast R-CNN) and You Only Look Once (YOLO), to detect objects in images captured by the museum's cameras.
+
+##### Fast R-CNN:
+Fast R-CNN improves upon the original R-CNN approach by introducing shared convolutional feature computation across region proposals, eliminating redundant computations. It utilizes RoI pooling for efficient feature extraction and achieves accurate and efficient object detection.
+
+##### YOLO:
+YOLO is a single-shot object detection algorithm that provides real-time performance by processing images only once through the network. It divides the input image into grids and predicts bounding boxes and class probabilities for each grid cell. While efficient, YOLO may fail to detect all objects if multiple objects are present in a single grid.
+
+#### Training Phase:
+We employ a comprehensive data collection methodology to gather diverse images covering various angles, lighting conditions, and occlusion events. The collected images are stored in a MongoDB database and preprocessed to generate TensorFlow records for efficient storage and compatibility with deep learning frameworks.
+
+#### Prediction Phase:
+During the prediction phase, we use pre-trained YOLO models to make predictions on captured images. The predictions include class labels and bounding box coordinates for identified objects. The description of each object is then delivered through a microphone using text-to-speech technology.
+
+### 2. Voice-Enabled Information
+
+#### Text-to-Speech (TTS) System:
+Our system utilizes a text-to-speech (TTS) engine to convert retrieved textual information about exhibits into audio output. This enables visitors to hear detailed descriptions of exhibits detected by the image recognition algorithms.
+
+#### VoiceBot:
+Additionally, we implement a voice-enabled question-answer interaction system, or VoiceBot, to provide visitors with more information about exhibits. The VoiceBot employs Voice Activity Detection (VAD), Automatic Speech Recognition (ASR), and Natural Language Understanding (NLU) to understand user queries and provide relevant responses.
+
+#### VoiceBot Script:
+The VoiceBot script integrates various components, including the OpenAI GPT-3.5 model for natural language processing, microphone recording, speech recognition, and text-to-speech conversion. Visitors can interact with the VoiceBot by asking questions, and it responds with synthesized speech.
+
+### 3. Main Script
+The main script orchestrates the entire system, capturing images, running object detection algorithms, handling visitor queries through the VoiceBot, and providing audio output through speakers. It ensures a seamless and interactive experience for museum visitors.
+
+Our software implementation leverages cutting-edge technologies to enhance the museum experience, providing informative descriptions of exhibits and enabling interactive communication between visitors and the museum's exhibits.
+
+
 ## Introduction:-
 A robot is being developed with capabilities to operate and explain physical exhibits through interaction with visitors.
 This robot also takes into account other factors like choosing the shortest path, collision detection and hence making the museum tour efficient.
