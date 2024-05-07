@@ -98,6 +98,21 @@ The main script orchestrates the entire system, capturing images, running object
 Our software implementation leverages cutting-edge technologies to enhance the museum experience, providing informative descriptions of exhibits and enabling interactive communication between visitors and the museum's exhibits.
 
 
+
+
+
+## Results and Evaluation
+On our dataset, 50000 steps were taken in total, and after every 10000 steps,
+the mAP value for each model was recorded. The mAP of YOLO is the highest
+among the four trained models, while that of SSD(Retina Net 152) is the lowest
+as in the previous chart.
+![img](Images/map.png)
+Response time refers to the overall amount of time between a service request
+and its fulfillment. The speed and precision of a chatbot’s responses determine its
+level of quality. As observed in the previous graph, ChatGPT AI has the shortest,
+while Wit.ai has the longest response time.
+![img](Images/cb.png)
+
 ## Introduction:-
 A robot is being developed with capabilities to operate and explain physical exhibits through interaction with visitors.
 This robot also takes into account other factors like choosing the shortest path, collision detection and hence making the museum tour efficient.
