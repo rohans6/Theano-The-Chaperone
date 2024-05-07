@@ -188,11 +188,15 @@ On our dataset, 50000 steps were taken in total, and after every 10000 steps,
 the mAP value for each model was recorded. The mAP of YOLO is the highest
 among the four trained models, while that of SSD(Retina Net 152) is the lowest
 as in the previous chart.
+
 ![img](Images/map.png)
+
+
 Response time refers to the overall amount of time between a service request
 and its fulfillment. The speed and precision of a chatbot’s responses determine its
 level of quality. As observed in the previous graph, ChatGPT AI has the shortest,
 while Wit.ai has the longest response time.
+
 ![img](Images/cb.png)
 
 ## Conclusions
@@ -208,3 +212,6 @@ linguistic backgrounds to enjoy the museum. The chatbot will be fine-tuned with
 precise information about the exhibit to increase its accuracy. Theano will be standardized to make it applicable for all types of museums; the museum will only need
 to supply the dataset and choose the model; after that, the robot will automatically
 train itself and be prepared for use in that specific museum.
+
+## Publication
+https://tijer.org/tijer/papers/TIJER2304126.pdf
