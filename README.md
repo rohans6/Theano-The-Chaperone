@@ -76,18 +76,76 @@ Fast R-CNN improves upon the original R-CNN approach by introducing shared convo
 YOLO is a single-shot object detection algorithm that provides real-time performance by processing images only once through the network. It divides the input image into grids and predicts bounding boxes and class probabilities for each grid cell. While efficient, YOLO may fail to detect all objects if multiple objects are present in a single grid.
 
 #### Training Phase:
-We employ a comprehensive data collection methodology to gather diverse images covering various angles, lighting conditions, and occlusion events. The collected images are stored in a MongoDB database and preprocessed to generate TensorFlow records for efficient storage and compatibility with deep learning frameworks.
+A comprehensive data collection methodology is crucial for developing efficient machine learning models. In our case, we gathered diverse images that
+encompass various angles, lighting conditions, and occlusion events. To achieve
+this, we employ an iOS device to record videos that cover all the mentioned conditions.[2]Once we have the recorded videos, we utilize the process of frame extraction
+to extract individual frames from each video. This allows us to obtain a collection
+of still images for further analysis and model training. We employ the OpenCV
+library, which provides a range of computer vision functionalities, including video
+processing and frame extraction. By utilizing OpenCV, we can efficiently capture
+images from the recorded videos.
+During the frame extraction process, we extract frames from the videos
+at a rate of 5 frames per second. This ensures that we capture an adequate number
+of frames to represent different moments in the recorded videos. To organize the
+extracted frames, we save them in separate folders for each artifact. This enables
+better organization and management of the collected image data. Next, we leverage
+the TensorFlow object detection API, which is a powerful framework for creating
+deep learning networks specifically designed to solve object detection problems.
+The API provides pre-trained models in its Model Zoo, which serve as a starting
+point for our work. We can fine-tune these pre-existing models, such as Fast
+R-CNN, EfficientDet, etc., using our collected image data. Fine-tuning involves
+adjusting the model parameters to make them more effective in our specific use
+case. Additionally, we explored Darknet, an open-source neural network framework
+written in C and CUDA. Darknet is specifically used for the fine-tuning of YOLO
+v4, another popular object detection model. By utilizing Darknet, we can fine-tune
+the YOLO v4 model to better suit our requirements and improve its accuracy in
+detecting objects in our dataset.
 
 #### Prediction Phase:
-During the prediction phase, we use pre-trained YOLO models to make predictions on captured images. The predictions include class labels and bounding box coordinates for identified objects. The description of each object is then delivered through a microphone using text-to-speech technology.
+The pre-trained YOLO v4 models’ weights are obtained in the TensorFlow
+SavedModel format, which specifically saves the variable weights of the models. To
+create a prediction pipeline, we begin by capturing images using a camera. These
+images serve as input to the pipeline. The captured images undergo a series of
+preprocessing steps to ensure that the tensors representing the images are in the
+appropriate format for further processing. These preprocessing steps may involve
+resizing, normalization, or any other necessary transformations.[3]
+Once the images have been preprocessed, they are fed into the YOLO
+v4 model. The model utilizes its learned weights to make predictions on the input
+images. These predictions typically involve determining the class or category of the
+objects present in the images. Following the prediction step, the description of the
+particular monument, corresponding to the predicted class, is delivered through
+a microphone. This involves using text-to-speech technology or delivering the
+description in an audible format to the user.
+In summary, the pipeline begins by capturing images, preprocesses them
+to prepare the tensors for the model, passes the tensors through the YOLO v4
+model for object classification and finally delivers the description of the identified
+monument through a microphone
 
 ### 2. Voice-Enabled Information
 
 #### Text-to-Speech (TTS) System:
-Our system utilizes a text-to-speech (TTS) engine to convert retrieved textual information about exhibits into audio output. This enables visitors to hear detailed descriptions of exhibits detected by the image recognition algorithms.
+Our proposed system will consist of a camera that detects the exhibits and
+retrieves information about it from the database. To achieve this, the system
+will employ image recognition algorithms(YOLO) that identify the object in the
+exhibit. Once the object is identified, the system will search the database (MongoDB) for relevant information related to the exhibit.The retrieved information is
+in textual form and will be converted to speech using a text-to-speech engine. The
+system will use a speaker to read out the information to the visitor. The textto-speech engine converts the retrieved textual information into audio output that
+the visitor can hear, while the speaker enables audio output. Overall, the system
+will provide a user-friendly and interactive experience for visitors at the museum.
+![img](gradio.png)
 
 #### VoiceBot:
-Additionally, we implement a voice-enabled question-answer interaction system, or VoiceBot, to provide visitors with more information about exhibits. The VoiceBot employs Voice Activity Detection (VAD), Automatic Speech Recognition (ASR), and Natural Language Understanding (NLU) to understand user queries and provide relevant responses.
+Additionally, the system will have voice-enabled,question-answer interactions for visitors to learn more about the exhibit.
+**Algorithm for Voicebot:**
+1. User speaks to the robot.
+2. The robot will use Voice Activity Detection (VAD) to detect the user’s voice
+and distinguish it from background noise.
+3. The robot then uses Automatic Speech Recognition (ASR) technology to transcribe the user’s speech into written text using the Speech-to-Text (STT) engine.[9]
+4. The natural language Understanding (NLU) engine analyzes the text to extract
+the user’s intent and essential information from the text.
+5. The voicebot selects an appropriate response based on the user’s intent.
+6. The response is synthesized into speech using the Text-to-Speech (TTS) engine.
+7. The robot finally delivers the synthesized response to the user
 
 #### VoiceBot Script:
 The VoiceBot script integrates various components, including the OpenAI GPT-3.5 model for natural language processing, microphone recording, speech recognition, and text-to-speech conversion. Visitors can interact with the VoiceBot by asking questions, and it responds with synthesized speech.
